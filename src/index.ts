@@ -33,7 +33,7 @@ app.get("/:query", async (c) => {
   }
 
   try {
-    const response = await spotifyRequest(c.env.KV, query);
+    const response = await spotifyRequest(c.env.sp_playcount, query);
     const union = response.data.artistUnion || response.data.albumUnion;
     if (union === undefined || union.__typename === "NotFound") {
       return c.json({success: false, data: `id not found: ${id}`}, 404)
