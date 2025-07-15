@@ -2,7 +2,6 @@
   "name": "sp-playcount-worker",
   "scripts": {
     "dev": "wrangler dev",
-    "start": "npx wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
