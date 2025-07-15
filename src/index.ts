@@ -6,6 +6,10 @@ import { GetAlbumTracksQuery } from './queries/track';
 import { GetArtistInsights, GetArtistQuery } from './queries/artist';
 import { spotifyRequest } from './spotify';
 
+console.log("Avviato");
+
+
+
 const app = new Hono<{ Bindings: CloudflareBindings }>()
 
 app.use("/:query", cors());
