@@ -37,6 +37,5 @@ pnpm-lock.yaml
 .DS_Store
 
 # wrangler
-wrangler.jsonc
 wrangler.toml
 worker-configuration.d.ts

@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sp-playcount",
+  "main": "./src/index.ts",
+  "compatibility_date": "2025-07-15",
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "ea44c7c242e34cc7a4d4888b7068a49b"
+    }
+  ],
+}
