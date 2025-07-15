@@ -5,7 +5,7 @@
   "compatibility_date": "2025-07-15",
   "kv_namespaces": [
     {
-      "binding": "KV",
+      "binding": "sp_playcount",
       "id": "ea44c7c242e34cc7a4d4888b7068a49b"
     }
   ],
