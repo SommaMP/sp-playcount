@@ -2,13 +2,7 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { cache } from 'hono/cache';
 import { GetAlbumQuery, OldGetAlbumQuery } from './queries/album';
-import { GetAlbumTracksQuery } from './queries/track';
-import { GetArtistInsights, GetArtistQuery } from './queries/artist';
 import { spotifyRequest } from './spotify';
-
-console.log("Avviato");
-
-
 
 const app = new Hono<{ Bindings: CloudflareBindings }>()
 
@@ -24,10 +18,7 @@ app.get("/:query", async (c) => {
 
   const queries = [
     new GetAlbumQuery(id),
-    new OldGetAlbumQuery(id),
-    new GetAlbumTracksQuery(id),
-    new GetArtistQuery(id),
-    new GetArtistInsights(id)
+    new OldGetAlbumQuery(id)
   ];
 
   const userQuery = c.req.param("query");
