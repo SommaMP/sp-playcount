@@ -39,5 +39,3 @@ pnpm-lock.yaml
 # wrangler
 wrangler.toml
 worker-configuration.d.ts
-
-/secrets
