@@ -9,13 +9,14 @@ const app = new Hono<{ Bindings: CloudflareBindings }>()
 app.use("/:query", cors());
 app.use("/:query", cache({cacheName: "cache", cacheControl: "max-age=21600"}))
 app.get("/:query", async (c) => {
+  
   const id = c.req.query("id") || c.req.query("albumid") || c.req.query("artistid");
   if (id === undefined) {
     return c.json({success: false, data: "id is not defined in the query"}, 400);
   } else if (id.length != 22) {
     return c.json({success: false, data: "id must have a length of 22 characters"}, 400);
   }
-
+  
   const queries = [
     new GetAlbumQuery(id),
     new OldGetAlbumQuery(id)
@@ -26,9 +27,12 @@ app.get("/:query", async (c) => {
   if (query === undefined) {
     return c.json({success: false, data: `Query not found: ${userQuery}`}, 404);
   }
-
+  
   try {
+    console.log('here');
     const response = await spotifyRequest(c.env.sp_playcount, query);
+    console.log(response);
+    
     const union = response.data.artistUnion || response.data.albumUnion;
     if (union === undefined || union.__typename === "NotFound") {
       return c.json({success: false, data: `id not found: ${id}`}, 404)
