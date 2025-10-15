@@ -35,7 +35,7 @@ async function refreshToken(kv: KVNamespace<string>): Promise<TokenResponse> {
   const processedCipher = secretInfo.secret.map((c, i) => (c ^ (i % 33 + 9)).toString()).join("")
   const cipherBytes = Uint8Array.from(processedCipher.split("").map(c => c.charCodeAt(0)))
   const secret = base32Encode(cipherBytes, "RFC4648", { padding: false });
-  const { otp } = TOTP.generate(secret);
+  const { otp } = await TOTP.generate(secret);
 
   const url = new URL("/api/token", SPOTIFY_WEB_URL);
   url.searchParams.set("reason", "init");
