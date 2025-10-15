@@ -29,7 +29,6 @@ async function refreshToken(kv: KVNamespace<string>): Promise<TokenResponse> {
   }
   const secretsRes = await fetch(secretsUrl);
   const secrets = await secretsRes.json<SpotifySecret[]>();
-  console.log(secrets);
   
   const secretInfo = secrets.pop()!;
 

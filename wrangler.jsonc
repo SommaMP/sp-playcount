@@ -8,5 +8,13 @@
       "binding": "sp_playcount",
       "id": "ea44c7c242e34cc7a4d4888b7068a49b"
     }
-  ]
+  ],
+  "observability": {
+    "logs": {
+      "enabled": false,
+      "head_sampling_rate": 1,
+      "invocation_logs": true,
+      "persist": true
+    }
+  }
 }
